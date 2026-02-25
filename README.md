@@ -10,28 +10,10 @@ npx quartz plugin add github:quartz-community/content-page
 
 ## Usage
 
-```ts
-// quartz.config.ts
-import * as ExternalPlugin from "./.quartz/plugins";
-
-const config: QuartzConfig = {
-  plugins: {
-    pageTypes: [ExternalPlugin.ContentPage()],
-  },
-};
-```
-
-```ts
-// quartz.layout.ts
-export const layout = {
-  byPageType: {
-    content: {
-      beforeBody: [...],
-      left: [...],
-      right: [...],
-    },
-  },
-}
+```yaml title="quartz.config.yaml"
+plugins:
+  - source: github:quartz-community/content-page
+    enabled: true
 ```
 
 ## Configuration
@@ -40,7 +22,7 @@ This plugin has no configuration options.
 
 ## Documentation
 
-See the [Quartz documentation](https://quartz.jzhao.xyz/) for more information.
+See the [Quartz documentation](https://quartz.jzhao.xyz/plugins/ContentPage) for more information.
 
 ## License
 
