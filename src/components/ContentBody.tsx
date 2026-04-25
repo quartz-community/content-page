@@ -20,7 +20,11 @@ export default (() => {
     const classes = frontmatter?.cssclasses ?? [];
     const classString = ["popover-hint", ...classes].join(" ");
 
-    return <article class={classString}>{content}</article>;
+    return (
+      <article class={classString}>
+        <div class="markdown-preview-view markdown-rendered">{content}</div>
+      </article>
+    );
   };
 
   return ContentBody;

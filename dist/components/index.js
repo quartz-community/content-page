@@ -2125,7 +2125,7 @@ var ContentBody_default = (() => {
     const frontmatter = fileData?.frontmatter;
     const classes = frontmatter?.cssclasses ?? [];
     const classString = ["popover-hint", ...classes].join(" ");
-    return /* @__PURE__ */ jsx("article", { class: classString, children: content });
+    return /* @__PURE__ */ jsx("article", { class: classString, children: /* @__PURE__ */ jsx("div", { class: "markdown-preview-view markdown-rendered", children: content }) });
   };
   return ContentBody;
 });
