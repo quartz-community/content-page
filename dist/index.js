@@ -1,6 +1,3 @@
-import { jsx, jsxs, Fragment } from 'preact/jsx-runtime';
-import { h } from 'preact';
-
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -59,8 +56,8 @@ var require_cjs = __commonJS({
       function updatePosition(str) {
         var lines = str.match(NEWLINE_REGEX);
         if (lines) lineno += lines.length;
-        var i = str.lastIndexOf(NEWLINE);
-        column = ~i ? str.length - i : column + str.length;
+        var i2 = str.lastIndexOf(NEWLINE);
+        column = ~i2 ? str.length - i2 : column + str.length;
       }
       function position3() {
         var start2 = { line: lineno, column };
@@ -91,22 +88,22 @@ var require_cjs = __commonJS({
         }
       }
       function match(re2) {
-        var m = re2.exec(style);
-        if (!m) return;
-        var str = m[0];
+        var m2 = re2.exec(style);
+        if (!m2) return;
+        var str = m2[0];
         updatePosition(str);
         style = style.slice(str.length);
-        return m;
+        return m2;
       }
       function whitespace2() {
         match(WHITESPACE_REGEX);
       }
       function comments(rules) {
-        var c;
+        var c2;
         rules = rules || [];
-        while (c = comment()) {
-          if (c !== false) {
-            rules.push(c);
+        while (c2 = comment()) {
+          if (c2 !== false) {
+            rules.push(c2);
           }
         }
         return rules;
@@ -114,18 +111,18 @@ var require_cjs = __commonJS({
       function comment() {
         var pos = position3();
         if (FORWARD_SLASH != style.charAt(0) || ASTERISK != style.charAt(1)) return;
-        var i = 2;
-        while (EMPTY_STRING != style.charAt(i) && (ASTERISK != style.charAt(i) || FORWARD_SLASH != style.charAt(i + 1))) {
-          ++i;
+        var i2 = 2;
+        while (EMPTY_STRING != style.charAt(i2) && (ASTERISK != style.charAt(i2) || FORWARD_SLASH != style.charAt(i2 + 1))) {
+          ++i2;
         }
-        i += 2;
-        if (EMPTY_STRING === style.charAt(i - 1)) {
+        i2 += 2;
+        if (EMPTY_STRING === style.charAt(i2 - 1)) {
           return error("End of comment missing");
         }
-        var str = style.slice(2, i - 2);
+        var str = style.slice(2, i2 - 2);
         column += 2;
         updatePosition(str);
-        style = style.slice(i);
+        style = style.slice(i2);
         column += 2;
         return pos({
           type: TYPE_COMMENT,
@@ -500,7 +497,7 @@ var aria = create({
     ariaValueText: null,
     role: null
   },
-  transform(_, property) {
+  transform(_2, property) {
     return property === "role" ? property : "aria-" + property.slice(4).toLowerCase();
   }
 });
@@ -1453,7 +1450,7 @@ var xlink = create({
     xLinkType: null
   },
   space: "xlink",
-  transform(_, property) {
+  transform(_2, property) {
     return "xlink:" + property.slice(5).toLowerCase();
   }
 });
@@ -1470,7 +1467,7 @@ var xmlns = create({
 var xml = create({
   properties: { xmlBase: null, xmlLang: null, xmlSpace: null },
   space: "xml",
-  transform(_, property) {
+  transform(_2, property) {
     return "xml:" + property.slice(3).toLowerCase();
   }
 });
@@ -1860,7 +1857,7 @@ function root(state, node, key) {
   addChildren(props, createChildren(state, node));
   return state.create(node, state.Fragment, props, key);
 }
-function text(_, node) {
+function text(_2, node) {
   return node.value;
 }
 function addNode(state, props, type, node) {
@@ -1876,11 +1873,11 @@ function addChildren(props, children) {
     }
   }
 }
-function productionCreate(_, jsx3, jsxs2) {
+function productionCreate(_2, jsx, jsxs) {
   return create2;
-  function create2(_2, type, props, key) {
+  function create2(_3, type, props, key) {
     const isStaticChildren = Array.isArray(props.children);
-    const fn = isStaticChildren ? jsxs2 : jsx3;
+    const fn = isStaticChildren ? jsxs : jsx;
     return key ? fn(type, props, key) : fn(type, props);
   }
 }
@@ -2097,35 +2094,77 @@ function transformStyleToCssCasing(from) {
 function toDash($0) {
   return "-" + $0.toLowerCase();
 }
+
+// node_modules/preact/dist/preact.mjs
+var n;
+var l;
+var u;
+var w = [];
+function k(l2, u3, t2) {
+  var i2, r2, o2, e2 = {};
+  for (o2 in u3) "key" == o2 ? i2 = u3[o2] : "ref" == o2 ? r2 = u3[o2] : e2[o2] = u3[o2];
+  if (arguments.length > 2 && (e2.children = arguments.length > 3 ? n.call(arguments, 2) : t2), "function" == typeof l2 && null != l2.defaultProps) for (o2 in l2.defaultProps) void 0 === e2[o2] && (e2[o2] = l2.defaultProps[o2]);
+  return x(l2, e2, i2, r2, null);
+}
+function x(n2, t2, i2, r2, o2) {
+  var e2 = { type: n2, props: t2, key: i2, ref: r2, __k: null, __: null, __b: 0, __e: null, __c: null, constructor: void 0, __v: null == o2 ? ++u : o2, __i: -1, __u: 0 };
+  return null != l.vnode && l.vnode(e2), e2;
+}
+function S(n2) {
+  return n2.children;
+}
+n = w.slice, l = { __e: function(n2, l2, u3, t2) {
+  for (var i2, r2, o2; l2 = l2.__; ) if ((i2 = l2.__c) && !i2.__) try {
+    if ((r2 = i2.constructor) && null != r2.getDerivedStateFromError && (i2.setState(r2.getDerivedStateFromError(n2)), o2 = i2.__d), null != i2.componentDidCatch && (i2.componentDidCatch(n2, t2 || {}), o2 = i2.__d), o2) return i2.__E = i2;
+  } catch (l3) {
+    n2 = l3;
+  }
+  throw n2;
+} }, u = 0, "function" == typeof Promise ? Promise.prototype.then.bind(Promise.resolve()) : setTimeout, Math.random().toString(8);
+
+// node_modules/preact/jsx-runtime/dist/jsxRuntime.mjs
+var f2 = 0;
+function u2(e2, t2, n2, o2, i2, u3) {
+  t2 || (t2 = {});
+  var a2, c2, p2 = t2;
+  if ("ref" in p2) for (c2 in p2 = {}, t2) "ref" == c2 ? a2 = t2[c2] : p2[c2] = t2[c2];
+  var l2 = { type: e2, props: p2, key: n2, ref: a2, __k: null, __: null, __b: 0, __e: null, __c: null, constructor: void 0, __v: --f2, __i: -1, __u: 0, __source: i2, __self: u3 };
+  if ("function" == typeof e2 && (a2 = e2.defaultProps)) for (c2 in a2) void 0 === p2[c2] && (p2[c2] = a2[c2]);
+  return l.vnode && l.vnode(l2), l2;
+}
+
+// node_modules/@quartz-community/utils/dist/jsx.js
 function childrenToString(children) {
   if (typeof children === "string") return children;
   if (Array.isArray(children)) return children.map(childrenToString).join("");
   return String(children ?? "");
 }
 var builtinComponents = {
-  table: (props) => /* @__PURE__ */ jsx("div", {
+  table: (props) => /* @__PURE__ */ u2("div", {
     class: "table-container",
-    children: /* @__PURE__ */ jsx("table", { ...props })
+    children: /* @__PURE__ */ u2("table", { ...props })
   }),
-  style: ({ children, ...rest }) => h("style", { ...rest, dangerouslySetInnerHTML: { __html: childrenToString(children) } }),
-  script: ({ children, ...rest }) => h("script", { ...rest, dangerouslySetInnerHTML: { __html: childrenToString(children) } })
+  style: ({ children, ...rest }) => k("style", { ...rest, dangerouslySetInnerHTML: { __html: childrenToString(children) } }),
+  script: ({ children, ...rest }) => k("script", { ...rest, dangerouslySetInnerHTML: { __html: childrenToString(children) } })
 };
 function htmlToJsx(tree, components) {
   return toJsxRuntime(tree, {
-    Fragment,
-    jsx,
-    jsxs,
+    Fragment: S,
+    jsx: u2,
+    jsxs: u2,
     elementAttributeNameCase: "html",
     components: { ...builtinComponents, ...components }
   });
 }
+
+// src/components/ContentBody.tsx
 var ContentBody_default = (() => {
   const ContentBody = ({ fileData, tree }) => {
     const content = htmlToJsx(tree);
     const frontmatter = fileData?.frontmatter;
     const classes = frontmatter?.cssclasses ?? [];
     const classString = ["popover-hint", ...classes].join(" ");
-    return /* @__PURE__ */ jsx("article", { class: classString, children: /* @__PURE__ */ jsx("div", { class: "markdown-preview-view markdown-rendered", children: content }) });
+    return /* @__PURE__ */ u2("article", { class: classString, children: /* @__PURE__ */ u2("div", { class: "markdown-preview-view markdown-rendered", children: content }) });
   };
   return ContentBody;
 });
