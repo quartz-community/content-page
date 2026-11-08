@@ -13,7 +13,8 @@ describe("contentMatcher", () => {
     expect(matches("tags/written")).toBe(true);
   });
 
-  it("leaves folder index pages to folder-page", () => {
-    expect(matches("folder/index")).toBe(false);
+  it("matches hand-written folder index pages (folder-page, when enabled, claims them first)", () => {
+    expect(matches("folder/index")).toBe(true);
+    expect(matches("tags/parent/index")).toBe(true);
   });
 });
