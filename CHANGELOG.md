@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.1
+
+### Patch Changes
+
+- 0be938a: Hand-written pages under `tags/` and folder `index.md` pages render again when the tag-page or folder-page plugin is disabled (they were silently dropped). With those plugins enabled nothing changes: their page types still render these pages.
+
 ## 1.0.0
 
 ### Major Changes

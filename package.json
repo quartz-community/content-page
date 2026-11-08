@@ -1,6 +1,6 @@
 {
   "name": "@quartz-community/content-page",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Content page type plugin for Quartz.",
   "type": "module",
   "license": "MIT",
