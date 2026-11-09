@@ -1,18 +1,20 @@
 # @quartz-community/content-page
 
-The default page type for regular content pages. Matches all pages except folder index pages and tag pages.
+The default page type for regular content pages. It matches every page that no more specific page type (such as folder-page or tag-page) claims first. Its layout can be adjusted under `layout.byPageType.content` in `quartz.config.yaml`.
 
 ## Installation
 
 ```bash
-npx quartz plugin add github:quartz-community/content-page
+npx quartz plugin add @quartz-community/content-page
 ```
+
+It is already included (and enabled) in the default `quartz.config.yaml`.
 
 ## Usage
 
 ```yaml title="quartz.config.yaml"
 plugins:
-  - source: github:quartz-community/content-page
+  - source: "@quartz-community/content-page"
     enabled: true
 ```
 
